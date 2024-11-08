@@ -28,6 +28,7 @@
     align-items: center;
     max-width: 1200px;
     margin: auto;
+    width: 100%;
   }
   
   .logo {
@@ -136,5 +137,57 @@
   .cursor__ball--big circle,
   .cursor__ball--small circle {
     fill: #f7f8fa;
+  }
+  
+  /* Responsive Design */
+  
+  /* Navbar adjustments for smaller screens */
+  @media screen and (max-width: 768px) {
+    .navbar-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .nav-links li {
+      margin: 10px 0;
+    }
+  
+    .hero-content h1 {
+      font-size: 40px;
+    }
+  
+    .hero-content p {
+      font-size: 16px;
+    }
+  
+    .hero-button {
+      padding: 8px 16px;
+    }
+  }
+  
+  /* Further adjustments for very small screens (phones) */
+  @media screen and (max-width: 480px) {
+    .hero {
+      height: 80vh;
+      padding: 0 10px;
+    }
+  
+    .hero-content h1 {
+      font-size: 32px;
+    }
+  
+    .hero-content p {
+      font-size: 14px;
+    }
+  
+    .hero-button {
+      padding: 6px 12px;
+    }
   }
   
