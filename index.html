@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEMPLATE</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="logo"><img src="logo.png" alt="Logo" width="100" height="100"></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#pages">Pages</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Home Page) -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+        <h1>HOPE<br>I'm your friendly medication reminder, here to help you stay on track!</h1>
+        <p>
+          Taking your medicine will help you feel stronger and enjoy what you love!
+        </p>
+        <a href="#quote" class="hero-button" onclick="dialNumber()">Get A Quote</a>
+
+<script>
+  // Function to dial the number directly
+  function dialNumber() {
+    window.location.href = "tel:108";  // This will open the dialer on mobile devices
+  }
+</script>
+
+        <p class="contact-email">hello.alime@gmail.com</p>
+    </div>
+  </section>
+  <section id="quote" style="padding: 50px; background-color: #f5f5f5;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>Quote Section</h2>
+      <p>This is the content of the quote section.</p>
+    </div>
+  </section>
+
+  <!-- Other Sections -->
+  <section id="pages" style="background-color: #ff4b2b; padding: 50px; height: auto;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>Pages Section</h2>
+      <p>This is the content of the pages section. It will adjust its height based on the amount of content inside it.</p>
+    </div>
+  </section>
+
+  <section id="about" style="background-color: #555; padding: 50px; height: auto;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>About Section</h2>
+      <p>This is the content of the about section. It will adjust its height based on the amount of content inside it.</p>
+    </div>
+  </section>
+
+  <section id="gallery" style="background-color: #222; padding: 50px; height: auto;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>Gallery Section</h2>
+      <p>This is the content of the gallery section. It will adjust its height based on the amount of content inside it.</p>
+    </div>
+  </section>
+
+  <section id="blog" style="background-color: #202020; padding: 50px; height: auto;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>Blog Section</h2>
+      <p>This is the content of the blog section. It will adjust its height based on the amount of content inside it.</p>
+    </div>
+  </section>
+
+  <section id="contact" style="background-color: #0a0a0a; padding: 50px; height: auto;">
+    <div style="max-width: 800px; margin: auto;">
+      <h2>Contact Section</h2>
+      <p>This is the content of the contact section. It will adjust its height based on the amount of content inside it.</p>
+    </div>
+  </section>
+
+  
+
+  <!-- Cursor -->
+  <div class="cursor">
+    <div class="cursor__ball cursor__ball--big">
+      <svg height="30" width="30">
+        <circle cx="15" cy="15" r="12"></circle>
+      </svg>
+    </div>
+    <div class="cursor__ball cursor__ball--small">
+      <svg height="10" width="10">
+        <circle cx="5" cy="5" r="4"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const $bigBall = document.querySelector('.cursor__ball--big');
+    const $smallBall = document.querySelector('.cursor__ball--small');
+    const $homeSection = document.querySelector('#home');
+
+    // Mouse move event listener for the home section
+    $homeSection.addEventListener('mousemove', onMouseMove);
+
+    // Move the cursor
+    function onMouseMove(e) {
+      gsap.to($bigBall, {
+        duration: 0.4,
+        x: e.pageX - 15,
+        y: e.pageY - 15
+      });
+      gsap.to($smallBall, {
+        duration: 0.1,
+        x: e.pageX - 5,
+        y: e.pageY - 7
+      });
+    }
+
+    // Optional: Enlarge cursor on hovering over specific elements within the home section
+    const $hoverables = $homeSection.querySelectorAll('.hero-button, .hero-content h1 span');
+
+    $hoverables.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        gsap.to($bigBall, {
+          duration: 0.3,
+          scale: 4
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        gsap.to($bigBall, {
+          duration: 0.3,
+          scale: 1
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
